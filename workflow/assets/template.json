@@ -1,0 +1,33 @@
+{
+  "template_name": "Machine-Readable Memory Ledger (MRML)",
+  "description": "A deterministic ledger for storing, updating, and retrieving structured memory entries across autonomous agents.",
+  "inputs": {
+    "memory_entry": {
+      "type": "object",
+      "description": "A structured memory object containing key, value, timestamp, and metadata."
+    },
+    "operation": {
+      "type": "string",
+      "description": "One of: write, update, delete, retrieve."
+    },
+    "query": {
+      "type": "object",
+      "description": "Criteria for retrieving or modifying memory entries."
+    }
+  },
+  "workflow": [
+    {
+      "step": "validate_operation",
+      "action": "Ensure the requested operation is allowed and properly formatted."
+    },
+    {
+      "step": "apply_operation",
+      "action": "Write, update, delete, or retrieve memory entries deterministically."
+    },
+    {
+      "step": "return_output",
+      "action": "Return a machine-readable ledger response with status and data."
+    }
+  ],
+  "output_format": "json"
+}
